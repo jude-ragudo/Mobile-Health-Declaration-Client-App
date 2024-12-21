@@ -1,0 +1,28 @@
+<ion-header [translucent]="true" >
+  <ion-toolbar class="data-privacy-header">
+    <ion-title class="header-text">Data Privacy Consent</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="client-app-bg"></div>
+  <div>
+    <p class="dt-label">Current Date: {{ currentDate }}</p>
+    <p class="dt-label">Current Time: {{ currentTime }}</p>
+  </div>
+  <div class="consent-text">
+    I willingly agree and provide my consent for the collection and sharing of the specified personal information solely for the purpose of adhering to the health protocols established by Bastion, Inc.
+  </div>
+  <ion-item lines="none">
+    <ion-checkbox justify="start" labelPlacement="end" [(ngModel)]="checkboxValue" required>I agree</ion-checkbox>
+  </ion-item>
+  <ion-item lines="none">
+    <ion-button expand="block" class="start-button" shape ="round" [disabled]="!checkboxValue" (click)="proceed()">START</ion-button>
+  </ion-item>
+  <div class="input-contents-3">
+    <ion-item-group class="flex-group return-to-home" (click)="backToMenu()">
+      <ion-icon name="return-up-back-outline"></ion-icon>
+      <ion-label>Back to Home</ion-label>
+    </ion-item-group>
+  </div>
+</ion-content>

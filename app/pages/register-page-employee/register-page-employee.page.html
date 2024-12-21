@@ -1,0 +1,41 @@
+<ion-header [translucent]="true" >
+  <ion-toolbar class="register-header">
+    <ion-title class="header-text">Registration</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="client-app-bg"></div>
+  <div class="input-contents">
+    <ion-input label="First Name" label-placement="floating" fill="outline" type="text" [(ngModel)]="firstName" (ngModelChange)="checkEmptyFields()"></ion-input>
+    <ion-input label="Middle Name" label-placement="floating" fill="outline" type="text" [(ngModel)]="middleName" (ngModelChange)="checkEmptyFields()"></ion-input>
+    <ion-input label="Last Name" label-placement="floating" fill="outline" type="text" [(ngModel)]="lastName" (ngModelChange)="checkEmptyFields()"></ion-input>
+    <ion-input label="Contact Number" label-placement="floating" fill="outline" type="text" (input)="onNumericInput($event)" [(ngModel)]="contactNum" (ngModelChange)="checkEmptyFields()" maxlength="11"></ion-input>
+    <ion-select label="Department" label-placement="floating" fill="outline" [(ngModel)]="selectedDepartment" (ngModelChange)="checkEmptyFields()" (ionChange)="departmentChanged()">
+      <ion-select-option value="md">Marketing</ion-select-option>
+      <ion-select-option value="asts">Application Systems & Technology Services</ion-select-option>
+      <ion-select-option value="sdmd">Service Desk</ion-select-option>
+      <ion-select-option value="dcf">Data Center & Facilities</ion-select-option>
+      <ion-select-option value="sent">Sentinel</ion-select-option>
+      <ion-select-option value="admin">Admin</ion-select-option>
+      <ion-select-option value="sdd">Software Development</ion-select-option>
+      <ion-select-option value="et">Enterprise Transformation</ion-select-option>
+      <ion-select-option value="other">Other</ion-select-option>
+    </ion-select>
+    <ion-input *ngIf="selectedDepartment === 'other'" label="Other Department" label-placement="floating" fill="outline" [(ngModel)]="customDepartment" (ngModelChange)="checkEmptyFields()"></ion-input>
+    <ion-input label="Position" label-placement="floating" fill="outline" type="text" [(ngModel)]="position" (ngModelChange)="checkEmptyFields()"></ion-input>
+  </div>
+  <div class="input-contents-2">
+    <ion-item-group class="flex-group t-and-c">
+      <ion-checkbox labelPlacement="end" [(ngModel)]="checkboxValue" (ngModelChange)="checkEmptyFields()"></ion-checkbox>
+      <ion-label>I agree with the <span (click)="showTermsAndCond()">Terms & Conditions</span></ion-label>
+    </ion-item-group>
+    <ion-button expand="block" shape="round" [disabled]="hasEmptyFields" (click)="goToEmployeeHome()">Register</ion-button>
+  </div>
+  <div class="input-contents-3">
+    <ion-item-group class="flex-group return-to-home" (click)="goBack()">
+      <ion-icon name="return-up-back-outline"></ion-icon>
+      <ion-label>Back to Menu</ion-label>
+    </ion-item-group>
+  </div>
+</ion-content>
