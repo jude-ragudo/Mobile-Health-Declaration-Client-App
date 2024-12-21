@@ -1,0 +1,78 @@
+<ion-header [translucent]="true" >
+  <ion-toolbar class="health-info-header">
+    <ion-title class="header-text">Health Information</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="client-app-bg"></div>
+
+  <div class="progress-bar">
+    <div [class.active]="stepProgressService.getCurrentStep() >= 1" class="circle"></div>
+    <div [class.active]="stepProgressService.getCurrentStep() >= 2" class="circle"></div>
+    <div [class.active]="stepProgressService.getCurrentStep() >= 3" class="circle"></div>
+  </div>
+
+  <div>
+    <div>
+      <p class="question-text">
+        Have you traveled outside of the Philippines in the last 14 days?
+      </p>
+    </div>
+    <div>
+      <p class="question-text">
+        (Ikaw ba ay nagbyahe sa labas ng Pilipinas sa nakalipas na 14 na araw?)
+      </p>
+    </div>
+    <ion-radio-group [(ngModel)]="radioGroup1" (ionChange)="onRadioChange()">
+      <ion-item lines="none">
+        <ion-label class="choice">Yes</ion-label>
+        <ion-radio value="yes"></ion-radio>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label class="choice">No</ion-label>
+        <ion-radio value="no"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </div>
+
+  <div class="input-contents">
+    <ion-input [(ngModel)]="inputField1" [disabled]="inputField1Disabled" label="If yes, where? (Kung oo, saan?)" label="If yes, where? (Kung oo, saan?)" label-placement="floating" fill="outline"></ion-input>
+  </div>
+
+  <div>
+    <div>
+      <p class="question-text">
+        Have you traveled outside in the current/city where you reside?
+      </p>
+    </div>
+    <div>
+      <p class="question-text">
+        (Ikaw ba ay nagbyahe sa labas ng inyong lungsod/munisipyo?)
+      </p>
+    </div>
+    <ion-radio-group [(ngModel)]="radioGroup2" (ionChange)="onRadioChange()">
+      <ion-item lines="none" class="bg-transparent">
+        <ion-label class="choice">Yes</ion-label>
+        <ion-radio value="yes"></ion-radio>
+      </ion-item>
+      <ion-item lines="none" class="bg-transparent">
+        <ion-label class="choice">No</ion-label>
+        <ion-radio value="no"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </div>
+
+  <div class="input-contents">
+    <ion-input [(ngModel)]="inputField2" [disabled]="inputField2Disabled" label="If yes, where? (Kung oo, saan?)" label="If yes, where? (Kung oo, saan?)" label-placement="floating" fill="outline"></ion-input>
+  </div>
+
+  <div class="navigation-buttons">
+    <ion-button expand="block" class="prev-button" shape ="round" (click)="goToPrevPage()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-button>
+    <ion-button expand="block" class="next-button" shape ="round" [disabled]="!isValid()" (click)="goToNextPage()">
+      <ion-icon name="arrow-forward"></ion-icon>
+    </ion-button>
+  </div>
+</ion-content>

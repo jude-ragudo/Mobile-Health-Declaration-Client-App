@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="view-qr-header">
+    <ion-title class="header-text">View QR</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="client-app-bg"></div>
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">view-qrcode-page-employee</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+
+  <ion-card class="qr-card">
+    <img [src]="createdCode" alt="QR Code" *ngIf="createdCode" />
+  </ion-card>
+
+
+  <ion-item lines="none">
+    <div class="navigation-buttons">
+      <ion-button expand="block" class="finish-button" shape ="round" (click)="goToHome()">Finish</ion-button>
+    </div>
+  </ion-item>
+</ion-content>
