@@ -1,0 +1,8 @@
+{
+  "name": "health-declaration-client-app",
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
+  "type": "angular"
+}
